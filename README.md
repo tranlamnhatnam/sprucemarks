@@ -1,46 +1,64 @@
-**This software is no longer being tested or updated.**
+# Pine (Modern Edition)
 
-# Sprucemarks
+Tiện ích mở rộng trình duyệt web tự động sắp xếp và tối ưu hóa bộ sưu tập dấu trang (Bookmarks / Favorites) với giao diện Dashboard hiện đại.
 
-A web browser extension that automatically sorts your bookmarks.
+---
 
-## Navigation
+## 🚀 Tính năng nổi bật
 
-* [Install](#install)
-* [Development](#development)
-* [Test](#test)
-* [License](#license)
+### 1. Tự động sắp xếp (Automatic Sorting)
+* **Tự động kích hoạt**: Khi thêm mới, đổi tên hoặc di chuyển dấu trang, tiện ích Pine sẽ tự động sắp xếp theo quy tắc đã thiết lập.
+* **Đa dạng tiêu chí sắp xếp**:
+  * Theo tên: A – Z hoặc Z – A
+  * Theo ngày thêm: Mới nhất trước hoặc Cũ nhất trước
+  * Theo URL: Địa chỉ trang web A – Z hoặc Z – A
+* **Ưu tiên thư mục (Folders First)**: Tự động gom nhóm toàn bộ các thư mục con lên đầu trước các liên kết trang web.
+* **Cấu hình theo từng thư mục gốc & thư mục con**:
+  * Thanh dấu trang (Bookmarks Bar / Favorites Bar)
+  * Dấu trang khác (Other Bookmarks / Other Favorites)
+  * Dấu trang di động (Mobile Bookmarks)
+  * Hỗ trợ đệ quy cho toàn bộ thư mục con (Subfolders).
 
-## Install
+### 2. Giao diện Dashboard hiện đại (Stylebot Style)
+* **Bố cục SPA tinh gọn**: Toàn bộ tính năng nằm trong một trang điều khiển trực quan, chuyển đổi tức thì giữa các tab.
+* **Hỗ trợ Dark Mode & Light Mode**: Tùy chọn Theo hệ thống, Sáng, hoặc Tối với CSS Variables mượt mà.
+* **Giao diện tiếng Việt 100%**: Trải nghiệm thân thiện, câu từ tự nhiên và chuẩn mực.
 
-Sprucemarks is intended to be used as a developer addon.
+### 3. Công cụ dọn dẹp & tối ưu (Tools)
+* **Thư mục trống (Empty Folders)**: Quét và hỗ trợ xóa nhanh các thư mục rỗng không chứa dấu trang.
+* **Dấu trang trùng lặp (Duplicate Bookmarks)**: Phát hiện và xử lý các liên kết có cùng URL chính xác.
+* **Dấu trang tương tự (Similar Bookmarks)**: Tìm và dọn dẹp các dấu trang cùng tên miền hoặc đường dẫn tương tự.
 
-For Chrome, navigate to `chrome://extensions` and enable developer mode. Then use `load unpacked` to select the `deploy` folder of Sprucemarks as the extension directory.
+### 4. Lịch sử phiên bản (Bookmark History)
+* **Gom nhóm theo ngày**: Xem lại chi tiết từng hoạt động (Đã thêm, Đã sửa, Đã xóa, Đã di chuyển) theo mốc thời gian (*Hôm nay, Hôm qua, Thứ Sáu...*).
+* **Bộ lọc thông minh**: Lọc nhanh theo loại thay đổi và tìm kiếm dấu trang.
 
-For Edge, navigate to `edge://extensions/` and enable developer mode. Then use `load unpacked` to select the `deploy` folder of Sprucemarks as the extension directory.
+### 5. Tính năng mới cải tiến
+* **Nút "Sắp xếp ngay" (Manual Sort Trigger)**: Chủ động chạy sắp xếp lại toàn bộ dấu trang bất cứ lúc nào với nút bấm trực tiếp.
+* **Tìm kiếm trực tiếp (Live Search)**: Tìm kiếm tức thì trong danh sách thư mục và lịch sử.
+* **Sao lưu & Khôi phục (Backup & Restore)**: Xuất toàn bộ cấu hình ra file `.json` và nhập lại dễ dàng trên máy tính khác.
 
-For Firefox, navigate to `about:debugging` and enable `add-on debugging`. Then use `load temporary add-on` and select the `manifest.json` file within the `deploy` folder of Sprucemarks. If FireFox does not load the extension, you may need to replace the background object inside `source/manifest.json` with the following code.
+---
 
-```
-"background": {
-    "scripts": ["background.js"]
-},
-```
+## 📦 Hướng dẫn cài đặt (Load Unpacked)
 
-If you change any source files, use Feri to publish to the `deploy` directory.
+### Dành cho Google Chrome / Cốc Cốc / Brave:
+1. Mở trình duyệt và truy cập: `chrome://extensions`
+2. Bật công tắc **Developer mode (Chế độ dành cho nhà phát triển)** ở góc trên bên phải.
+3. Nhấp vào nút **Load unpacked (Tải tiện ích đã giải nén)**.
+4. Chọn thư mục `deploy` của Pine.
 
-## Development
+### Dành cho Microsoft Edge:
+1. Truy cập: `edge://extensions`
+2. Bật công tắc **Developer mode**.
+3. Nhấp vào **Load unpacked** và chọn thư mục `deploy`.
 
-Use the `log` setting inside `source/js/shared.js` to enable or disable console logs for various events and operations.
+### Dành cho Mozilla Firefox:
+1. Truy cập: `about:debugging#/runtime/this-firefox`
+2. Nhấp vào nút **Load Temporary Add-on...**
+3. Chọn file `deploy/manifest.json`.
 
-Use Feri to continually publish from the `source` directory to the `deploy` directory.
+---
 
-## Test
-
-From the background service worker, run `await test()` to use the test suite.
-
-## License
-
-[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
-
-This work has been marked as dedicated to the public domain.
+## 🛡️ Bản quyền & Mã nguồn
+Phát triển theo giấy phép CC0 1.0 Universal (Public Domain). Bạn có toàn quyền sử dụng, tùy chỉnh và phát triển tiếp.

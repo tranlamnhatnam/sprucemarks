@@ -511,7 +511,7 @@ const theme_and_icon = shared.function.theme_and_icon = function theme_and_icon(
     let icon_color      = local.preference.icon_color
     let theme           = local.preference.theme
 
-    const current_browser_is_dark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const current_browser_is_dark = (typeof window !== 'undefined' && window.matchMedia) ? window.matchMedia('(prefers-color-scheme: dark)').matches : false
 
     if (browser_is_dark !== current_browser_is_dark) {
         // update our own local preference
@@ -621,7 +621,7 @@ const theme_monitor = shared.function.theme_monitor = function theme_monitor() {
 
     clearTimeout(shared.timer.theme_monitor)
 
-    if (local.preference.browser_is_dark !== window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (typeof window !== 'undefined' && window.matchMedia && local.preference.browser_is_dark !== window.matchMedia('(prefers-color-scheme: dark)').matches) {
         log('theme_monitor -> prefers color scheme change')
         theme_and_icon()
     } // if

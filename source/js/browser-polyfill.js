@@ -70,6 +70,11 @@ browser.bookmarks.onImportEnded       = chrome.bookmarks.onImportEnded
 browser.bookmarks.onMoved             = chrome.bookmarks.onMoved
 browser.bookmarks.onRemoved           = chrome.bookmarks.onRemoved
 browser.bookmarks.remove              = chrome.bookmarks.remove
+browser.bookmarks.create              = chrome.bookmarks.create
+browser.bookmarks.getSubTree          = chrome.bookmarks.getSubTree
+browser.bookmarks.removeTree          = chrome.bookmarks.removeTree
+browser.bookmarks.search              = chrome.bookmarks.search
+browser.bookmarks.update              = chrome.bookmarks.update
 
 browser.runtime.connect     = chrome.runtime.connect
 browser.runtime.getManifest = chrome.runtime.getManifest
@@ -175,3 +180,63 @@ browser.storage.local.set = function browser_storage_local_set(items) {
         } // try
     }) // promise
 } // storage.local.set
+
+browser.storage.sync = {
+    get: function browser_storage_sync_get(keys) {
+        return new Promise(function(resolve, reject) {
+            try {
+                if (!chrome.storage || !chrome.storage.sync) {
+                    resolve({});
+                    return;
+                }
+                chrome.storage.sync.get(keys, function(items) {
+                    if (chrome.runtime.lastError) {
+                        reject(chrome.runtime.lastError);
+                    } else {
+                        resolve(items || {});
+                    }
+                });
+            } catch (error) {
+                reject(error);
+            }
+        });
+    },
+    set: function browser_storage_sync_set(items) {
+        return new Promise(function(resolve, reject) {
+            try {
+                if (!chrome.storage || !chrome.storage.sync) {
+                    resolve();
+                    return;
+                }
+                chrome.storage.sync.set(items, function() {
+                    if (chrome.runtime.lastError) {
+                        reject(chrome.runtime.lastError);
+                    } else {
+                        resolve();
+                    }
+                });
+            } catch (error) {
+                reject(error);
+            }
+        });
+    },
+    remove: function browser_storage_sync_remove(keys) {
+        return new Promise(function(resolve, reject) {
+            try {
+                if (!chrome.storage || !chrome.storage.sync) {
+                    resolve();
+                    return;
+                }
+                chrome.storage.sync.remove(keys, function() {
+                    if (chrome.runtime.lastError) {
+                        reject(chrome.runtime.lastError);
+                    } else {
+                        resolve();
+                    }
+                });
+            } catch (error) {
+                reject(error);
+            }
+        });
+    }
+};

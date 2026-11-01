@@ -4,4 +4,3 @@
 
 <js>include('/js/-background.js')</js>
 
-<js>include('/js/-background-test.js')</js>

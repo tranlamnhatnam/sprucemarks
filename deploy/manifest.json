@@ -1,6 +1,7 @@
 {
     "action": {
-        "default_title": "Sprucemarks"
+        "default_title": "Pine",
+        "default_popup": "page/popup.html"
     },
     "background": {
         "service_worker": "background.js"
@@ -18,15 +19,15 @@
     },
     "manifest_version": 3,
     "minimum_chrome_version": "102",
-    "name": "Sprucemarks",
+    "name": "Pine",
     "options_ui": {
         "open_in_tab": true,
-        "page": "page/light/dark/options.html"
+        "page": "page/options.html"
     },
     "permissions": [
         "bookmarks",
         "storage"
     ],
-    "short_name": "Sprucemarks",
-    "version": "2026.8.28.0"
+    "short_name": "Pine",
+    "version": "2026.11.1.0"
 }

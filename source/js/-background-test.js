@@ -1263,7 +1263,7 @@ local.test.status = function test_status() {
         'import_active'       : 'boolean',
         'listeners_active'    : 'boolean',
         'resort_active'       : 'boolean',
-        'sprucemarks_active'  : 'boolean',
+        'pine_active'  : 'boolean',
         'start_done'          : 'boolean'
     } // property_type
 
@@ -1271,7 +1271,7 @@ local.test.status = function test_status() {
         'import_active'       : false,
         'listeners_active'    : true,
         'resort_active'       : false,
-        'sprucemarks_active'  : true,
+        'pine_active'  : true,
         'start_done'          : true
     } // property_value
 
